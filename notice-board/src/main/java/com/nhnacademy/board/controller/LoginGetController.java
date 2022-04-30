@@ -17,17 +17,16 @@ public class LoginGetController implements Command {
         Map<String, User> users =
             (Map<String, User>) request.getServletContext().getAttribute("users");
 
+        // Todo: erase
         log.info("login get controller");
-        if (Objects.isNull(session)) {
-            log.info("login get controller session is null");
+        // session이 없거나 로그인하지 않았을 경우
+        if ((Objects.isNull(session)) ||
+            (Objects.nonNull(session) && !users.containsKey(session.getAttribute("id")))) {
             return "/loginForm.jsp";
-        } else {
-            if (!users.containsKey(session.getAttribute("id"))) {
-                log.error("aaaaaaaaa - " + users.get("admin").getId());
-                log.error("session attribute - " +session.getAttribute("id"));
-                return "/loginForm.jsp";
-            }
+        } else { // 로그인했을 경우
+            if (session.getAttribute("id").equals("admin"))
+                return "redirect:/userList.jsp"; // 관리자 모드
+            return "redirect:/boardList.jsp"; // 일반 모드
         }
-        return "/boardList.jsp";
     }
 }

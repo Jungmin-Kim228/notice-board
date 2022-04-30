@@ -7,9 +7,10 @@
 <body>
 <h1>게시판리스트</h1>
 <c:set var="users" value="${users}"></c:set>
-<c:forEach var="i" items="${users}">
-    ${i.key} = ${i.value}
+<c:forEach var="user" items="${users}">
+    ${user.key} = ${user.value.getName()} + ${user.value.getPw()}
 </c:forEach>
 <c:out value="${session.id}"></c:out>
+<a href="${pageContext.request.contextPath}/logout.do">logout</a>
 </body>
 </html>

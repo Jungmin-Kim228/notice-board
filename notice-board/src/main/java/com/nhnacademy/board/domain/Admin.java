@@ -15,5 +15,6 @@ public class Admin implements User{
         this.id = id;
         this.pw = pw;
         this.name = name;
+        this.profileFileName = "null";
     }
 }

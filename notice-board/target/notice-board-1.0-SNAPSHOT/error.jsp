@@ -7,5 +7,6 @@
 <body>
 <h1>에러 페이지</h1>
 에러: ${exception}
+<a href="${pageContext.request.contextPath}/">홈으로</a>
 </body>
 </html>

@@ -4,6 +4,10 @@ import com.nhnacademy.board.command.Command;
 import com.nhnacademy.board.controller.LoginGetController;
 import com.nhnacademy.board.controller.LoginPostController;
 import com.nhnacademy.board.controller.BoardListController;
+import com.nhnacademy.board.controller.LogoutController;
+import com.nhnacademy.board.controller.UserAddController;
+import com.nhnacademy.board.controller.UserDeleteController;
+import com.nhnacademy.board.controller.UserListController;
 import java.io.IOException;
 import java.util.Objects;
 import javax.servlet.RequestDispatcher;
@@ -24,13 +28,6 @@ public class FrontServlet extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp)
         throws ServletException, IOException {
         HttpSession session = req.getSession(false);
-        // Todo: erase
-        if (Objects.nonNull(session)) {
-            log.error("session is not null");
-            session.invalidate();
-        } else {
-            log.error("session is null");
-        }
 
         resp.setContentType("text/html");
         resp.setCharacterEncoding("UTF-8");
@@ -38,13 +35,7 @@ public class FrontServlet extends HttpServlet {
         try {
             Command command = resolveCommand(req.getServletPath(), req.getMethod());
 
-            // Todo: erase
-            log.error("frontservlet: getServletPath - " + req.getServletPath());
-            log.error("frontservlet: getMethod - " + req.getMethod());
-
             String view = command.execute(req, resp);
-            // Todo: erase
-            log.error("frontservlet: view - " + view);
 
             if (view.startsWith(REDIRECT_PREFIX)) {
                 // `redirect:`로 시작하면 redirect 처리.
@@ -72,6 +63,16 @@ public class FrontServlet extends HttpServlet {
             command = new LoginGetController();
         } else if ("/login.do".equals(servletPath) && "POST".equalsIgnoreCase(method)) {
             command = new LoginPostController();
+        } else if ("/boardList.do".equals(servletPath) && "GET".equalsIgnoreCase(method)) {
+            command = new BoardListController();
+        } else if ("/userList.do".equals(servletPath) && "GET".equalsIgnoreCase(method)) {
+            command = new UserListController();
+        } else if ("/logout.do".equals(servletPath) && "GET".equalsIgnoreCase(method)) {
+            command = new LogoutController();
+        } else if ("/userAdd.do".equals(servletPath) && "POST".equalsIgnoreCase(method)) {
+            command = new UserAddController();
+        } else if("/userDelete.do".equals(servletPath) && "POST".equalsIgnoreCase(method)) {
+            command = new UserDeleteController();
         }
 
         return command;

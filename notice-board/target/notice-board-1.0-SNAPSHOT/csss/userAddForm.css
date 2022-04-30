@@ -1,0 +1,9 @@
+#imgContainer {
+    width: 100px;
+    height: 100px;
+}
+
+#imgContainer > * {
+    width: 100px;
+    height: 100px;
+}
