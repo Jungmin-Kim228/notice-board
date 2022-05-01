@@ -8,6 +8,7 @@ import com.nhnacademy.board.controller.LogoutController;
 import com.nhnacademy.board.controller.UserAddController;
 import com.nhnacademy.board.controller.UserDeleteController;
 import com.nhnacademy.board.controller.UserListController;
+import com.nhnacademy.board.controller.UserModifyController;
 import java.io.IOException;
 import java.util.Objects;
 import javax.servlet.RequestDispatcher;
@@ -73,6 +74,8 @@ public class FrontServlet extends HttpServlet {
             command = new UserAddController();
         } else if("/userDelete.do".equals(servletPath) && "POST".equalsIgnoreCase(method)) {
             command = new UserDeleteController();
+        } else if("/userModify.do".equals(servletPath) && "POST".equalsIgnoreCase(method)) {
+            command = new UserModifyController();
         }
 
         return command;

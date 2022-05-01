@@ -1,4 +1,4 @@
-package com.nhnacademy.board.domain;
+package com.nhnacademy.board.domain.Users;
 
 public interface User {
     String getId();

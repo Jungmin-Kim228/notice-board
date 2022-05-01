@@ -1,4 +1,4 @@
-package com.nhnacademy.board.domain;
+package com.nhnacademy.board.domain.Posts;
 
 import java.time.LocalDateTime;
 

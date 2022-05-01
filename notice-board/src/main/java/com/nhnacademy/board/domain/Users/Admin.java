@@ -1,20 +1,20 @@
-package com.nhnacademy.board.domain;
+package com.nhnacademy.board.domain.Users;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Setter
 @Getter
-public class General implements User {
+public class Admin implements User{
     private String id;
     private String pw;
     private String name;
     private String profileFileName;
 
-    public General(String id, String pw, String name, String profileFileName) {
+    public Admin(String id, String pw, String name) {
         this.id = id;
         this.pw = pw;
         this.name = name;
-        this.profileFileName = profileFileName;
+        this.profileFileName = "null";
     }
 }

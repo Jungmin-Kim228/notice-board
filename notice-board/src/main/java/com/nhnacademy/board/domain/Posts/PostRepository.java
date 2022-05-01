@@ -1,6 +1,5 @@
-package com.nhnacademy.board.repository;
+package com.nhnacademy.board.domain.Posts;
 
-import com.nhnacademy.board.domain.Post;
 import java.util.List;
 
 public interface PostRepository {

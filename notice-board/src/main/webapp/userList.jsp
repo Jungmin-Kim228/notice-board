@@ -27,7 +27,7 @@
                 <td>${user.value.getPw()}</td>
                 <td>${user.value.getProfileFileName()}</td>
                 <td>
-                    <form class="form" method="post" action="${pageContext.request.contextPath}/userModify.do">
+                    <form class="form" method="post" action="${pageContext.request.contextPath}/userModify.jsp">
                         <input type="hidden" name="who" value="${user.value.getId()}"/>
                         <input type="submit" value="수정"/>
                     </form>

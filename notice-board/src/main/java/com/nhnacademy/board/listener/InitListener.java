@@ -1,7 +1,7 @@
 package com.nhnacademy.board.listener;
 
-import com.nhnacademy.board.domain.Admin;
-import com.nhnacademy.board.domain.User;
+import com.nhnacademy.board.domain.Users.Admin;
+import com.nhnacademy.board.domain.Users.User;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.ServletContext;

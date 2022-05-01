@@ -1,7 +1,7 @@
 package com.nhnacademy.board.controller;
 
 import com.nhnacademy.board.command.Command;
-import com.nhnacademy.board.domain.User;
+import com.nhnacademy.board.domain.Users.User;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
