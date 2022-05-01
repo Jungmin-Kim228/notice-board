@@ -7,6 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 public class UserListController implements Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
-        return "/userList.jsp";
+        return "/userListForAdmin.jsp";
     }
 }

@@ -1,14 +1,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://sargue.net/jsptags/time" prefix="javatime" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>게시판 홈</title>
-    <link href="csss/userList.css" rel="stylesheet" type="text/css">
+    <link href="csss/boardList.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <h1>게시판</h1>
 <button class="headButton" onclick="location.href='/logout.do'">로그아웃</button>
-<button class="headButton" onclick="location.href='/boardAdd.jsp'">게시물 추가</button>
+<button class="headButton" onclick="location.href='/boardAddForm.jsp'">게시물 추가</button>
 <hr><br>
 <c:set var="posts" value="${applicationScope.posts.getPosts()}"></c:set>
 
@@ -26,15 +27,15 @@
             <td>${post.value.getId()}</td>
             <td>${post.value.getTitle()}</td>
             <td>${post.value.getContent()}</td>
-            <td>${post.value.getWriterUserId()}</td>
-            <td>${post.value.getWriteTime()}</td>
+            <td>${post.value.getWriterUserName()}</td>
+            <td><javatime:format value="${post.value.getWriteTime()}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
             <td>${post.value.getViewCount()}</td>
             <td>
-                <form class="form" method="post" action="${pageContext.request.contextPath}/userModify.jsp">
+                <form class="form" method="post" action="${pageContext.request.contextPath}/boardModify.do">
                     <input type="hidden" name="which" value="${post.value.getId()}"/>
                     <input type="submit" value="수정"/>
                 </form>
-                <form class="form" method="post" action="${pageContext.request.contextPath}/userDelete.do">
+                <form class="form" method="post" action="${pageContext.request.contextPath}/boardDelete.do">
                     <input type="hidden" name="which" value="${post.value.getId()}"/>
                     <input type="submit" value="삭제"/>
                 </form>

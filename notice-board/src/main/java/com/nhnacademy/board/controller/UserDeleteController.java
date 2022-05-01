@@ -19,6 +19,6 @@ public class UserDeleteController implements Command {
 
         request.getServletContext().setAttribute("users", users);
 
-        return "redirect:/userList.do";
+        return "redirect:/userListForAdmin.do";
     }
 }

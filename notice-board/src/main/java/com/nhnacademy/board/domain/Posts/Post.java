@@ -12,8 +12,8 @@ public interface Post {
     String getContent();
     void setContent(String content);
 
-    String getWriterUserId();
-    void setWriterUserId(String writerUserId);
+    String getWriterUserName();
+    void setWriterUserName(String writerUserName);
 
     LocalDateTime getWriteTime();
     void setWriteTime(LocalDateTime writeTime);

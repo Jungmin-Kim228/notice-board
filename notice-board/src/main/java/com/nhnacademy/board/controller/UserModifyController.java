@@ -17,29 +17,29 @@ public class UserModifyController implements Command {
         boolean self = false;
 
         String who = request.getParameter("who");
-        String recievedId = request.getParameter("id");
-        String recievedPw = request.getParameter("pw");
-        String recievedName = request.getParameter("name");
-        String recievedProfile = request.getParameter("profile");
+        String receivedId = request.getParameter("id");
+        String receivedPw = request.getParameter("pw");
+        String receivedName = request.getParameter("name");
+        String receivedProfile = request.getParameter("profile");
 
-        if (recievedId.equals("")) {
-            recievedId = who;
+        if (receivedId.equals("")) {
+            receivedId = who;
             self = true;
         }
-        recievedPw = (!recievedPw.equals("")) ? recievedPw : users.getUsers().get(who).getPw();
-        recievedName = (!recievedName.equals("")) ? recievedName : users.getUsers().get(who).getName();
-        recievedProfile = (!recievedProfile.equals("")) ? recievedProfile : users.getUsers().get(who).getProfileFileName();
+        receivedPw = (!receivedPw.equals("")) ? receivedPw : users.getUsers().get(who).getPw();
+        receivedName = (!receivedName.equals("")) ? receivedName : users.getUsers().get(who).getName();
+        receivedProfile = (!receivedProfile.equals("")) ? receivedProfile : users.getUsers().get(who).getProfileFileName();
 
-        if (users.getUsers().containsKey(recievedId) && !self) {
+        if (users.getUsers().containsKey(receivedId) && !self) {
             throw new IllegalArgumentException("해당 아이디가 이미 존재합니다.");
         }
 
-        User user = new General(recievedId, recievedPw, recievedName, recievedProfile);
+        User user = new General(receivedId, receivedPw, receivedName, receivedProfile);
 
         users.modify(users.getUsers().get(who), user);
 
         request.getServletContext().setAttribute("users", users);
 
-        return "redirect:/userList.do";
+        return "redirect:/userListForAdmin.do";
     }
 }
