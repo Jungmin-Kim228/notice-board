@@ -9,18 +9,18 @@ public class Users implements UserRepository {
 
     @Override
     public void add(User user) {
-        users.put(user.getId(), user);
+        this.users.put(user.getId(), user);
     }
 
     @Override
     public void modify(User oldUser, User newUser) {
-        users.remove(oldUser.getId());
-        users.put(newUser.getId(), newUser);
+        this.users.remove(oldUser.getId());
+        this.users.put(newUser.getId(), newUser);
     }
 
     @Override
     public User remove(String id) {
-        return this.remove(id);
+        return this.users.remove(id);
     }
 
     @Override

@@ -10,7 +10,7 @@
 <button class="headButton" onclick="location.href='/logout.do'">로그아웃</button>
 <button class="headButton" onclick="location.href='/userAddForm.jsp'">사용자 추가</button>
 <hr><br>
-<c:set var="users" value="${applicationScope.users}"></c:set>
+<c:set var="users" value="${applicationScope.users.getUsers()}"></c:set>
 
 <table>
     <tr>

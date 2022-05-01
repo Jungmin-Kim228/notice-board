@@ -7,8 +7,6 @@ v
 Fsrc/main/java/com/nhnacademy/board/controller/BoardListController.java,d\7\d70436745320024165f49d5740a2f66705ae425f
 v
 Fsrc/main/java/com/nhnacademy/board/filter/CharacterEncodingFilter.java,a\9\a9fcce65209723995c0146d2822d652c75f236c7
-s
-Csrc/main/java/com/nhnacademy/board/controller/LogoutController.java,0\9\09b8a021ae7234d46ba168e57634b608f2c3b7b4
 d
 4src/main/java/com/nhnacademy/board/domain/Admin.java,a\d\ad651be28b5aeb7eca77cb3bc1413503ee6b6a53
 f

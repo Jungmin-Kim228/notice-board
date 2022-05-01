@@ -18,6 +18,7 @@ public class WebAppInitializer implements ServletContainerInitializer {
         throws ServletException {
 
         servletContext.setInitParameter("adminAccount", "admin,12345,관리자");
+        servletContext.setInitParameter("generalAccount", "1111,1111,1111,1111.jpg");
 
 //        servletContext.setInitParameter("counterFileName", "counter.dat");
 //        servletContext.setInitParameter("counter", "0");
