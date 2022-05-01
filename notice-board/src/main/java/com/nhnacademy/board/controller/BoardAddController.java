@@ -12,18 +12,18 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class BoardAddController implements Command {
     private Posts posts;
-    private Users users;
+    private int boardCount;
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
 
         posts = (Posts) request.getServletContext().getAttribute("posts");
-        users = (Users) request.getServletContext().getAttribute("users");
+        boardCount = (int) request.getServletContext().getAttribute("boardCount");
 
         Long receivedId = Long.parseLong(request.getParameter("id"));
         String receivedTitle = request.getParameter("title");
         String receivedContent = request.getParameter("content");
-        String receivedWriter = users.getUsers().get(request.getParameter("writer")).getName();
+        String receivedWriter = request.getParameter("writer");
         String receivedTime = request.getParameter("writeTime");
 
         if (receivedTime.equals("")) {
@@ -36,6 +36,7 @@ public class BoardAddController implements Command {
         }
 
         request.getServletContext().setAttribute("posts", posts);
+        request.getServletContext().setAttribute("boardCount", boardCount++);
 
         return "redirect:/boardList.do";
 

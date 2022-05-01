@@ -10,25 +10,25 @@ public class ConcretePost implements Post {
     private long id;
     private String title;
     private String content;
-    private String writerUserName;
+    private String writerUserId;
     private LocalDateTime writeTime;
     private int viewCount;
 
-    public ConcretePost(long id, String title, String content, String writerUserName) {
+    public ConcretePost(long id, String title, String content, String writerUserId) {
         this.id = id;
         this.title = title;
         this.content = content;
-        this.writerUserName = writerUserName;
+        this.writerUserId = writerUserId;
         this.writeTime = LocalDateTime.now();
         this.viewCount = 0;
     }
 
-    public ConcretePost(long id, String title, String content, String writerUserName,
+    public ConcretePost(long id, String title, String content, String writerUserId,
                         LocalDateTime writeTime) {
         this.id = id;
         this.title = title;
         this.content = content;
-        this.writerUserName = writerUserName;
+        this.writerUserId = writerUserId;
         this.writeTime = writeTime;
     }
 

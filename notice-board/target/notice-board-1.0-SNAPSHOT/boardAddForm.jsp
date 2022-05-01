@@ -9,13 +9,15 @@
 <h1>게시물 추가하기</h1>
 <hr>
 
+<c:set var="users" value="${applicationScope.users}"></c:set>
 <c:set var="sessionId" value="${pageContext.request.getSession(false).getAttribute('id')}"></c:set>
+
 <form method="post" action="${pageContext.request.contextPath}/boardAdd.do">
     <input hidden name="id" value="${applicationScope.boardCount}"/>
     제목 <input name="title" type="text" required/><br><br>
     내용 <input name="content" type="text" required/><br><br>
-    작성자ID: ${sessionId}<br><br>
-    <input hidden name="writer" type="text" value="${sessionId}"/>;
+    작성자ID, 이름: ${sessionId}, ${users.getUser(sessionId).getName()}<br><br>
+    <input hidden name="writer" type="text" value="${sessionId}"/>
     작성시간 <input name="writeTime" type="datetime-local" /><br><br>
     <br><input type="submit" value="추가"/>
 </form>

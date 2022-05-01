@@ -3,6 +3,7 @@ package com.nhnacademy.board.servlet;
 import com.nhnacademy.board.command.Command;
 import com.nhnacademy.board.controller.BoardAddController;
 import com.nhnacademy.board.controller.BoardDeleteController;
+import com.nhnacademy.board.controller.BoardModifyController;
 import com.nhnacademy.board.controller.LoginGetController;
 import com.nhnacademy.board.controller.LoginPostController;
 import com.nhnacademy.board.controller.BoardListController;
@@ -82,6 +83,8 @@ public class FrontServlet extends HttpServlet {
             command = new BoardAddController();
         } else if ("/boardDelete.do".equals(servletPath) && "POST".equalsIgnoreCase(method)) {
             command = new BoardDeleteController();
+        } else if ("boardModify.do".equals(servletPath) && "POST".equalsIgnoreCase(method)) {
+            command = new BoardModifyController();
         }
 
         return command;

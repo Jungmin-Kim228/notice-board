@@ -12,6 +12,7 @@
 <button class="headButton" onclick="location.href='/boardAddForm.jsp'">게시물 추가</button>
 <hr><br>
 <c:set var="posts" value="${applicationScope.posts.getPosts()}"></c:set>
+<c:set var="users" value="${applicationScope.users}"></c:set>
 
 <table>
     <tr>
@@ -27,7 +28,7 @@
             <td>${post.value.getId()}</td>
             <td>${post.value.getTitle()}</td>
             <td>${post.value.getContent()}</td>
-            <td>${post.value.getWriterUserName()}</td>
+            <td>${users.getUser(post.value.getWriterUserId()).getName()}</td>
             <td><javatime:format value="${post.value.getWriteTime()}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
             <td>${post.value.getViewCount()}</td>
             <td>
