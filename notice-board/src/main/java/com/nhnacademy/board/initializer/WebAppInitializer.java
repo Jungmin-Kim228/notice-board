@@ -21,7 +21,7 @@ public class WebAppInitializer implements ServletContainerInitializer {
         servletContext.setInitParameter("generalAccount", "1111,1111,user1,1111.jpg");
 
         servletContext.setInitParameter("boardCount", "1");
-
+//        servletContext.setInitParameter("sessionCount", "0");
 //        servletContext.setInitParameter("counterFileName", "counter.dat");
 //        servletContext.setInitParameter("counter", "0");
     }

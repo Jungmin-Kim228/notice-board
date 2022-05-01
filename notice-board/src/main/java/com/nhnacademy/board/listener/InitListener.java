@@ -23,6 +23,7 @@ public class InitListener implements ServletContextListener {
         String[] adminAccount = servletContext.getInitParameter("adminAccount").split(",");
         String[] generalAccount = servletContext.getInitParameter("generalAccount").split(","); // 테스트를 위해 일반 사용자 삽입
         String boardCount = servletContext.getInitParameter("boardCount");
+//        String sessionCount = servletContext.getInitParameter("sessionCount");
 
         users.add(new Admin(adminAccount[0], adminAccount[1], adminAccount[2]));
         users.add(new General(generalAccount[0], generalAccount[1], generalAccount[2], generalAccount[3]));
@@ -30,5 +31,6 @@ public class InitListener implements ServletContextListener {
         servletContext.setAttribute("users", users);
         servletContext.setAttribute("posts", posts);
         servletContext.setAttribute("boardCount", Integer.parseInt(boardCount));
+//        servletContext.setAttribute("sessionCount", Integer.parseInt(sessionCount));
     }
 }
