@@ -19,7 +19,7 @@ public class BoardDeleteController implements Command {
         Long parsedId = Long.parseLong(deleteId);
 
         if (!session.getAttribute("id").equals(posts.getPost(parsedId).getWriterUserId())) {
-            throw new IllegalAccessError("해당 게시물 삭제 권한이 없습니다.");
+            throw new IllegalStateException("해당 게시물 삭제 권한이 없습니다.");
         }
 
         posts.remove(parsedId);

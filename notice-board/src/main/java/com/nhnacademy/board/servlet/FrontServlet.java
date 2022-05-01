@@ -3,7 +3,8 @@ package com.nhnacademy.board.servlet;
 import com.nhnacademy.board.command.Command;
 import com.nhnacademy.board.controller.BoardAddController;
 import com.nhnacademy.board.controller.BoardDeleteController;
-import com.nhnacademy.board.controller.BoardModifyController;
+import com.nhnacademy.board.controller.BoardModifyAccessCheckController;
+import com.nhnacademy.board.controller.BoardModifyPostController;
 import com.nhnacademy.board.controller.LoginGetController;
 import com.nhnacademy.board.controller.LoginPostController;
 import com.nhnacademy.board.controller.BoardListController;
@@ -13,7 +14,6 @@ import com.nhnacademy.board.controller.UserDeleteController;
 import com.nhnacademy.board.controller.UserListController;
 import com.nhnacademy.board.controller.UserModifyController;
 import java.io.IOException;
-import java.util.Objects;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -83,8 +83,10 @@ public class FrontServlet extends HttpServlet {
             command = new BoardAddController();
         } else if ("/boardDelete.do".equals(servletPath) && "POST".equalsIgnoreCase(method)) {
             command = new BoardDeleteController();
-        } else if ("boardModify.do".equals(servletPath) && "POST".equalsIgnoreCase(method)) {
-            command = new BoardModifyController();
+        } else if ("/boardModifyAccessCheck.do".equals(servletPath) && "POST".equalsIgnoreCase(method)) {
+            command = new BoardModifyAccessCheckController();
+        } else if ("/boardModify.do".equals(servletPath) && "POST".equalsIgnoreCase(method)) {
+            command = new BoardModifyPostController();
         }
 
         return command;

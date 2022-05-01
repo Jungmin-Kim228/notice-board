@@ -32,7 +32,7 @@
             <td><javatime:format value="${post.value.getWriteTime()}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
             <td>${post.value.getViewCount()}</td>
             <td>
-                <form class="form" method="post" action="${pageContext.request.contextPath}/boardModify.do">
+                <form class="form" method="post" action="${pageContext.request.contextPath}/boardModifyAccessCheck.do">
                     <input type="hidden" name="which" value="${post.value.getId()}"/>
                     <input type="submit" value="수정"/>
                 </form>

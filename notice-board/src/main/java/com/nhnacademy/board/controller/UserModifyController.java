@@ -37,10 +37,10 @@ public class UserModifyController implements Command {
 
         User user = new General(receivedId, receivedPw, receivedName, receivedProfile);
 
-        users.modify(users.getUsers().get(who), user);
+        users.modify(users.getUser(who), user);
 
         request.getServletContext().setAttribute("users", users);
 
-        return "redirect:/userListForAdmin.do";
+        return "redirect:/userList.do";
     }
 }

@@ -7,7 +7,7 @@
 <body>
   <h1>사용자 추가하기</h1>
 <hr>
-  <form method="post" enctype="multipart/form-data" action="${pageContext.request.contextPath}/userAdd.do">
+  <form method="post" action="${pageContext.request.contextPath}/userAdd.do">
       아이디 <input name="id" type="text" required/><br><br>
       패스워드 <input name="pw" type="text" required/><br><br>
       이름 <input name="name" type="text" required/><br><br>

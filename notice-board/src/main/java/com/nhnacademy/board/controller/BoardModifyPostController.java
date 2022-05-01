@@ -2,42 +2,37 @@ package com.nhnacademy.board.controller;
 
 import com.nhnacademy.board.command.Command;
 import com.nhnacademy.board.domain.Posts.ConcretePost;
+import com.nhnacademy.board.domain.Posts.Post;
 import com.nhnacademy.board.domain.Posts.repository.Posts;
 import java.time.LocalDateTime;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
-public class BoardAddController implements Command {
+public class BoardModifyPostController implements Command {
     private Posts posts;
-    private int boardCount;
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
-
         posts = (Posts) request.getServletContext().getAttribute("posts");
-        boardCount = (int) request.getServletContext().getAttribute("boardCount");
+        Post post;
 
-        Long receivedId = Long.parseLong(request.getParameter("id"));
+        Long which = Long.parseLong(request.getParameter("which"));
         String receivedTitle = request.getParameter("title");
         String receivedContent = request.getParameter("content");
         String receivedWriter = request.getParameter("writer");
         String receivedTime = request.getParameter("writeTime");
 
         if (receivedTime.equals("")) {
-            posts.register(
-                new ConcretePost(receivedId, receivedTitle, receivedContent, receivedWriter));
+            post = new ConcretePost(which, receivedTitle, receivedContent, receivedWriter);
         } else {
-            posts.register(
-                new ConcretePost(receivedId, receivedTitle, receivedContent, receivedWriter,
-                    LocalDateTime.parse(receivedTime)));
+            post = new ConcretePost(which, receivedTitle, receivedContent, receivedWriter,
+                    LocalDateTime.parse(receivedTime));
         }
 
+        posts.modify(posts.getPost(which), post);
+
         request.getServletContext().setAttribute("posts", posts);
-        request.getServletContext().setAttribute("boardCount", ++boardCount);
 
         return "redirect:/boardList.do";
-
     }
 }

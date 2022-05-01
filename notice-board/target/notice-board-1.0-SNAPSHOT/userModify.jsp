@@ -9,13 +9,14 @@
 <h1>사용자 수정하기</h1>
 <hr>
 <c:set var="who" value="${pageContext.request.getParameter('who')}"></c:set>
+<c:set var="users" value="${applicationScope.users}"></c:set>
 
 <form method="post" action="${pageContext.request.contextPath}/userModify.do">
     <h2>수정하려는 사용자: ${who}</h2><br><br>
     <input hidden name="who" type="text" value="${who}"/>
-    아이디 <input name="id" type="text" placeholder="미입력 시 기존 정보 유지"/><br><br>
-    패스워드 <input name="pw" type="text" placeholder="미입력 시 기존 정보 유지"/><br><br>
-    이름 <input name="name" type="text" placeholder="미입력 시 기존 정보 유지"/><br><br>
+    아이디 <input name="id" type="text" placeholder="${users.getUser(who).getId()}"/><br><br>
+    패스워드 <input name="pw" type="text" placeholder="${users.getUser(who).getPw()}"/><br><br>
+    이름 <input name="name" type="text" placeholder="${users.getUser(who).getName()}"/><br><br>
     프로필 <input name="profile" type="file" accept="image/*" onchange="setThumbnail(event);"/><br><br>
     미리보기 <br>
     <div id="imgContainer"></div>

@@ -16,7 +16,8 @@
     <input hidden name="id" value="${applicationScope.boardCount}"/>
     제목 <input name="title" type="text" required/><br><br>
     내용 <input name="content" type="text" required/><br><br>
-    작성자ID, 이름: ${sessionId}, ${users.getUser(sessionId).getName()}<br><br>
+    작성자 ID: ${sessionId}<br>
+    작성자 이름: ${users.getUser(sessionId).getName()}<br><br>
     <input hidden name="writer" type="text" value="${sessionId}"/>
     작성시간 <input name="writeTime" type="datetime-local" /><br><br>
     <br><input type="submit" value="추가"/>

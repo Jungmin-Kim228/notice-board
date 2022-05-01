@@ -25,7 +25,7 @@ public class LoginGetController implements Command {
             return "/loginForm.jsp";
         } else { // 로그인했을 경우
             if (session.getAttribute("id").equals("admin"))
-                return "redirect:/userListForAdmin.jsp"; // 관리자 모드
+                return "redirect:/userList.jsp"; // 관리자 모드
             else
                 return "redirect:/boardList.jsp"; // 일반 모드
         }

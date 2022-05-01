@@ -26,6 +26,6 @@ public class UserAddController implements Command {
 
         request.getServletContext().setAttribute("users", users);
 
-        return "redirect:/userListForAdmin.do";
+        return "redirect:/userList.do";
     }
 }
